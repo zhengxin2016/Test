@@ -31,8 +31,8 @@ int main()
 		exit(1);
 	}
 
-	char sendbuf[BUFFER_SIZE];
-	char recvbuf[BUFFER_SIZE];
+	char sendbuf[BUFFER_SIZE] = {};
+	char recvbuf[BUFFER_SIZE] = {};
 	while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL) {
 		send(sock_cli, sendbuf, strlen(sendbuf), 0);
 		if (strcmp(sendbuf, "exit\n") == 0)

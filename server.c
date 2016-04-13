@@ -37,7 +37,7 @@ int main()
 		exit(1);
 	}
 
-	char buffer[BUFFER_SIZE];
+	char buffer[BUFFER_SIZE] = {};
 	struct sockaddr_in client_addr;
 	socklen_t length = sizeof(client_addr);
 
@@ -53,8 +53,7 @@ int main()
 		int len = recv(conn, buffer, sizeof(buffer), 0);
 		if (strcmp(buffer, "exit\n") == 0)
 			break;
-		//fputs(buffer, stdout);
-		printf("%s", buffer);
+		fputs(buffer, stdout);
 		send(conn, buffer, len, 0);
 	}
 	close(conn);
