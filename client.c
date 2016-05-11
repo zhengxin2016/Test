@@ -23,7 +23,6 @@ int main()
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_port = htons(MYPORT);
 	servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");//server ip
-	//servaddr.sin_addr.s_addr = inet_addr("10.0.2.15");//server ip
 
 	if (connect(sock_cli, (struct sockaddr *)&servaddr, sizeof(servaddr))
 			< 0) {
@@ -31,8 +30,8 @@ int main()
 		exit(1);
 	}
 
-	char sendbuf[BUFFER_SIZE] = {};
-	char recvbuf[BUFFER_SIZE] = {};
+	char sendbuf[BUFFER_SIZE] = {0};
+	char recvbuf[BUFFER_SIZE] = {0};
 	while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL) {
 		send(sock_cli, sendbuf, strlen(sendbuf), 0);
 		if (strcmp(sendbuf, "exit\n") == 0)

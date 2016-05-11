@@ -37,7 +37,7 @@ int main()
 		exit(1);
 	}
 
-	char buffer[BUFFER_SIZE] = {};
+	char buffer[BUFFER_SIZE] = {0};
 	struct sockaddr_in client_addr;
 	socklen_t length = sizeof(client_addr);
 
