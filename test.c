@@ -32,5 +32,5 @@ void main()
 		printf("%d:hello world!\n", i);
 		i++;
 	}
-	printf("hello\n");
+	printf("hello world\n");
 }
